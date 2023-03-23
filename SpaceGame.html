@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<body>
+    <!-- <input type="submit" onclick="rocketBoost"> -->
+</body>
+
+<script>
+
+const rocketshipImg = document.createElement('img');
+// set the source of the image element to the rocketship image URL
+rocketshipImg.src = 'Rocket.png';
+document.body.appendChild(rocketshipImg);
+rocketshipImg.style.width='100px';
+rocketshipImg.style.height='100px';
+rocketshipImg.style.borderRadius='50%';
+rocketshipImg.style.position='absolute';
+rocketshipImg.style.left='0px';
+rocketshipImg.style.top='50%';
+rocketshipImg.style.marginTop='-50px';
+var x = 0;
+var xDirection=1;
+var xSpeed = 5;
+function animate(){
+    x+= xDirection * xSpeed;
+    if(x > window.innerWidth-100){
+        xDirection= -1;
+    }
+    if(x<0){
+        xDirection = 1;
+    }
+    rocketshipImg.style.left = x + 'px';
+
+    window.requestAnimationFrame(animate);
+}
+animate();
+
+document.body.style.overflow='hidden';
+
+rocketshipImg.onclick = function() {
+    var text = document.createElement('div');
+    text.innerHTML = 'Firing Thrusters!';
+    text.style.color = 'white';
+    text.style.position = 'absolute';
+    text.style.left = rocketshipImg.offsetLeft + 'px';
+    text.style.top = rocketshipImg.offsetTop + 'px';
+    document.body.appendChild(text);
+    xSpeed = 20;
+    setTimeout(function() {
+        xSpeed = 5;
+        document.body.removeChild(text);
+    }, 250);
+};
+
+function rocketBoost() {
+    xSpeed = 20;
+    setTimeout(function rocketBoost() {
+        xSpeed = 5;
+        document.body.removeChild(text);
+    }, 250);
+};
+const asteroid = document.createElement('img');
+// set the source of the image element to the rocketship image URL
+asteroid.src = 'Asteriod2.png';
+document.body.appendChild(asteroid);
+
+asteroid.style.width=rocketshipImg.offsetWidth*0.75+'px';
+asteroid.style.height=rocketshipImg.offsetHeight*0.75+'px';
+
+asteroid.style.position='absolute';
+asteroid.style.left=Math.random() *(window.innerWidth - asteroid.offsetWidth) + 'px';
+asteroid.style.top = Math.random() * (window.innerHeight - asteroid.offsetHeight) + 'px'; 
+
+var asteroidX = 0;
+var asteroidY = 0;
+var asteroidXDirection = 1;
+var asteroidYDirection = 1;
+var asteroidXSpeed = 5;
+var asteroidYSpeed = 5;
+
+function animateAsteroid(){
+    asteroidX += asteroidXDirection * asteroidXSpeed;
+    asteroidY += asteroidYDirection * asteroidYSpeed;
+
+    if(asteroidX > window.innerWidth - asteroid.offsetWidth){
+        asteroidXDirection = -1;
+    }
+    if(asteroidX<0){
+        asteroidXDirection=1;
+    }
+    if(asteroidY > window.innerHeight - asteroid.offsetHeight){
+        asteroidYDirection = -1;
+
+    }
+    if(asteroidY < 0){
+        asteroidYDirection = 1;
+    }
+    asteroid.style.left = asteroidX + 'px';
+    asteroid.style.top = asteroidY + 'px';
+
+    window.requestAnimationFrame(animateAsteroid);
+}animateAsteroid();
+
+const asteroid2 = document.createElement('img');
+// set the source of the image element to the rocketship image URL
+asteroid2.src = 'Asteriod2.png';
+document.body.appendChild(asteroid2);
+
+asteroid2.style.width=rocketshipImg.offsetWidth*0.75+'px';
+asteroid2.style.height=rocketshipImg.offsetHeight*0.75+'px';
+
+asteroid2.style.position='absolute';
+asteroid2.style.left=Math.random() *(window.innerWidth - asteroid2.offsetWidth) + 'px';
+asteroid2.style.top = Math.random() * (window.innerHeight - asteroid2.offsetHeight) + 'px'; 
+
+var asteroidX1 = 0;
+var asteroidY1 = 0;
+var asteroidXDirection1 = 3;
+var asteroidYDirection1 = 9;
+var asteroidXSpeed1 = 1;
+var asteroidYSpeed1 = 1;
+
+function animateAsteroid1(){
+    asteroidX1 += asteroidXDirection1 * asteroidXSpeed1;
+    asteroidY1 += asteroidYDirection1 * asteroidYSpeed1;
+
+    if(asteroidX1 > window.innerWidth - asteroid2.offsetWidth){
+        asteroidXDirection1 = -1;
+    }
+    if(asteroidX1<0){
+        asteroidXDirection1=1;
+    }
+    if(asteroidY1 > window.innerHeight - asteroid2.offsetHeight){
+        asteroidYDirection1 = -1;
+
+    }
+    if(asteroidY1 < 0){
+        asteroidYDirection1 = 1;
+    }
+    asteroid2.style.left = asteroidX1 * 2/3 + 'px';
+    asteroid2.style.top = asteroidY1 *2/3 + 'px';
+
+
+
+    window.requestAnimationFrame(animateAsteroid1);
+}animateAsteroid1();
+
+const asteroid3 = document.createElement('img');
+// set the source of the image element to the rocketship image URL
+asteroid3.src = 'Asteriod2.png';
+document.body.appendChild(asteroid3);
+
+asteroid3.style.width=rocketshipImg.offsetWidth*0.75+'px';
+asteroid3.style.height=rocketshipImg.offsetHeight*0.75+'px';
+
+asteroid3.style.position='absolute';
+asteroid3.style.left=Math.random() *(window.innerWidth - asteroid3.offsetWidth) + 'px';
+asteroid3.style.top = Math.random() * (window.innerHeight - asteroid3.offsetHeight) + 'px'; 
+
+var asteroidX2 = 5;
+var asteroidY2 = 4;
+var asteroidXDirection2 = 3;
+var asteroidYDirection2 = 9;
+var asteroidXSpeed2 = 2;
+var asteroidYSpeed2 = 2;
+
+function animateAsteroid2(){
+    asteroidX2 += asteroidXDirection2 * asteroidXSpeed2;
+    asteroidY2 += asteroidYDirection2 * asteroidYSpeed2;
+
+    if(asteroidX2 > window.innerWidth - asteroid3.offsetWidth){
+        asteroidXDirection2 = -1;
+    }
+    if(asteroidX2<0){
+        asteroidXDirection2=1;
+    }
+    if(asteroidY2 > window.innerHeight - asteroid3.offsetHeight){
+        asteroidYDirection2 = -1;
+
+    }
+    if(asteroidY2 < 0){
+        asteroidYDirection2 = 1;
+    }
+    asteroid3.style.left = asteroidX2 * 0.85 + 'px';
+    asteroid3.style.top = asteroidY2 *0.85 + 'px';
+
+
+
+    window.requestAnimationFrame(animateAsteroid2);
+}animateAsteroid2();
+
+// asteroidXSpeed1= xSpeed * 1.1;
+// asteroidYSpeed1 =  xSpeed * 1.1;
+
+var score = 0;
+var scoreDisplay = document.createElement('div');
+scoreDisplay.innerHTML = 'Score '+ score;
+scoreDisplay.style.position='absolute';
+scoreDisplay.style.right='0px';
+scoreDisplay.style.top='0px';
+scoreDisplay.style.color='white';
+scoreDisplay.style.fontSize='2cm';
+document.body.appendChild(scoreDisplay);
+
+
+var scoreIncrement = setInterval(function(){
+    score++;
+    scoreDisplay.innerHTML = 'Score: '+score;
+}, 500);
+
+var asteroidOverLapShip = false;
+
+var  asteroidOverlapcheck = setInterval(function() {
+    if(asteroid.offsetLeft < rocketshipImg.offsetLeft + rocketshipImg.offsetWidth && asteroid.offsetLeft + asteroid.offsetWidth > rocketshipImg.offsetLeft && asteroid.offsetTop < rocketshipImg.offsetTop + rocketshipImg.offsetHeight && asteroid.offsetTop + asteroid.offsetHeight > rocketshipImg.offsetHeight ){
+        asteroidOverLapShip = true;
+    }else if(asteroid2.offsetLeft < rocketshipImg.offsetLeft + rocketshipImg.offsetWidth && asteroid2.offsetLeft + asteroid.offsetWidth > rocketshipImg.offsetLeft && asteroid2.offsetTop < rocketshipImg.offsetTop + rocketshipImg.offsetHeight && asteroid2.offsetTop + asteroid2.offsetHeight > rocketshipImg.offsetHeight ){
+        asteroidOverLapShip = true;
+    }
+    else{
+        asteroidOverLapShip = false;
+    }
+}, 10);
+
+var asteroiOverlapsShipLastTime = false;
+
+var asteroidCollisionCheck = setInterval(function() {
+    if(asteroidOverLapShip && !asteroiOverlapsShipLastTime){
+        score -= 1;
+        var text = document.createElement('div');
+        text.innerHTML = 'Collision! - 1';
+        text.style.color = 'red';
+        text.style.position = 'absolute';
+
+        text.style.left = asteroid.offsetLeft + 'px';
+        text.style.top = asteroid.offsetTop  + 'px';
+
+        document.body.appendChild(text);
+        setTimeout(function() {
+            document.body.removeChild(text);
+        }, 1000);
+    }
+    asteroiOverlapsShipLastTime = asteroidOverLapShip;
+},10);
+
+var startTime = Date.now();
+var playerWon = false;
+
+var winCheck = setInterval(function(){
+    if(score >= 350 && !playerWon){
+        clearInterval(scoreIncrement);
+
+        clearInterval(asteroidOverlapcheck);
+        clearInterval(asteroidCollisionCheck);
+
+        playerWon=true;
+        while(document.body.firstChild){
+            document.body.removeChild(document.body.firstChild);
+        }
+        var text = document.createElement('div');
+        text.innerHTML='YouWin! It tooks' +(Date.now() - startTime)/1000 + 'seconds'; 
+        text.style.color='green';
+        text.style.marginLeft='-50px';
+        text.style.top='50%';
+        text.style.marginTop = '-50px';
+
+        document.body.appendChild(text);
+        
+    }
+}, 10);
+
+</script>
+<style>
+    body{
+        /* background-color: black; */
+        background-image: url("BcKImg.jpg");
+    }
+
+</style>
+</html>
