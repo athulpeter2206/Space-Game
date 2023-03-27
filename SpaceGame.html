@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <body>
-    <!-- <input type="submit" onclick="rocketBoost"> -->
+    <button type="Boost" onclick="rocketBoost()" class="btnClass">Boost</button>
+    
 </body>
 
 <script>
@@ -18,7 +19,7 @@ rocketshipImg.style.top='50%';
 rocketshipImg.style.marginTop='-50px';
 var x = 0;
 var xDirection=1;
-var xSpeed = 5;
+var xSpeed = 10;
 function animate(){
     x+= xDirection * xSpeed;
     if(x > window.innerWidth-100){
@@ -32,6 +33,8 @@ function animate(){
     window.requestAnimationFrame(animate);
 }
 animate();
+
+xSpeed = 5;
 
 document.body.style.overflow='hidden';
 
@@ -49,14 +52,24 @@ rocketshipImg.onclick = function() {
         document.body.removeChild(text);
     }, 250);
 };
-
 function rocketBoost() {
+    var text = document.createElement('div');
+    text.innerHTML = 'Firing Thrusters!';
+    text.style.color = 'white';
+    text.style.position = 'absolute';
+    text.style.left = rocketshipImg.offsetLeft + 'px';
+    text.style.top = rocketshipImg.offsetTop + 'px';
+    document.body.appendChild(text);
     xSpeed = 20;
     setTimeout(function rocketBoost() {
         xSpeed = 5;
         document.body.removeChild(text);
     }, 250);
 };
+
+
+
+
 const asteroid = document.createElement('img');
 // set the source of the image element to the rocketship image URL
 asteroid.src = 'Asteriod2.png';
@@ -272,6 +285,14 @@ var winCheck = setInterval(function(){
         /* background-color: black; */
         background-image: url("BcKImg.jpg");
     }
-
+    .btnClass{
+        width: 100px;
+        height: 50px;
+        border-radius: 15px;
+        margin-left: 750px;
+        margin-top: 520px;
+        background-color: rgb(49, 93, 173);
+        color: white;
+    }
 </style>
 </html>
